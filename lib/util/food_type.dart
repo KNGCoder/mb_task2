@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class FoodType extends StatelessWidget{
   final String foodType;
-  final bool isSelected;
+  final bool isSelect;
   final VoidCallback onTap;
   const FoodType(
     {required this.foodType,
-    required this.isSelected,
+    required this.isSelect,
     required this.onTap,
     super.key} );
 
@@ -21,7 +21,7 @@ class FoodType extends StatelessWidget{
           style: TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
-          color: isSelected? Colors.orange : Colors.white ), 
+          color: isSelect? Colors.orange : Colors.white ),
         ),
       ),
     );

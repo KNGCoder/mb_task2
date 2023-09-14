@@ -14,13 +14,14 @@ class FoodTitle extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Padding(
-      padding: const EdgeInsets.only(left: 25.0, bottom: 25.0),
+      padding: const EdgeInsets.only(left: 25.0, bottom: 50.0),
       child: Container(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(15.0),
         width: 200,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: Colors.black54,
+          borderRadius: BorderRadius.circular(11),
+          
+          color: Colors.lime.shade700,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
