@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
         BottomNavigationBarItem(icon: Icon(Icons.home, color: Colors.limeAccent,),label: ''),
         BottomNavigationBarItem(icon: Icon(Icons.favorite),label: ''),
         BottomNavigationBarItem(icon: Icon(Icons.notifications),label: ''),
-        ], backgroundColor: Colors.amber ),
+        ], backgroundColor: Colors.lime[900] ),
 
       body: Column(children: [
         Padding(
@@ -56,15 +56,14 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(fontSize: 30, color: Colors.lime[700]),
           ), 
          ),
-         const SizedBox(height: 20),
+         const SizedBox(height: 20),// отступ между надписью и поиском
          Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),// отступ снаружи поиска
           child: TextField(
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.search, color: Colors.lime,),
-              hintText: 'Найди для себя...',
-
-
+              hintText:'Найди для себя...',
+              hintStyle: TextStyle(color:Colors.lime),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.lime.shade900)),
               enabledBorder: const OutlineInputBorder(
@@ -89,7 +88,8 @@ class _HomePageState extends State<HomePage> {
             },
           ),
          ),
-        Expanded(
+        Container(
+          height: 320,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: const [

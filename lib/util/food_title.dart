@@ -29,7 +29,8 @@ class FoodTitle extends StatelessWidget{
             //image food
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Container(
+            child:
+            Container(
               width: 200,
               height: 150,
               child: FittedBox(
