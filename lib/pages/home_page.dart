@@ -72,6 +72,10 @@ class _HomePageState extends State<HomePage> {
           ),
          ),
          const SizedBox(height: 10), //отступ между поиском и меню
+      Expanded(
+       child:ListView(
+       scrollDirection: Axis.vertical,
+         children: [
          Container(
           height: 50,// высота меню
           child: ListView.builder(
@@ -111,6 +115,23 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
+           Padding(
+             padding: const EdgeInsets.symmetric(horizontal: 25.0),
+             child: Text(
+               'Суп недели - Чечевичный',
+               style: TextStyle(fontSize: 30, color: Colors.lime[700]),
+             ),
+           ),
+           Padding(
+             padding: const EdgeInsets.symmetric(horizontal: 25.0),
+             child: Text(
+              'Чечевица – одна из древнейших бобовых культур. Упоминания о блюдах из чечевицы встречаются в трудах античных историков, а первые рецепты — в древнеримской кулинарной книге легендарного гурмана I в. н. э. Марка Габия Апиция.Супу из чечевицы отдавал должное и древнегреческий комедиограф Аристофан, считавший эту еду «слаще всех деликатесов».Но, легендарным чечевичный суп стал благодаря драматической библейской истории про обмен права первородства на миску чечевичной похлебки, что повлияло на судьбу целого народа.',
+               style: TextStyle(fontSize: 25, color: Colors.lime[500]),
+             ),
+           ),
+       ]
+       )
+       ),
       ]),
     );
   }

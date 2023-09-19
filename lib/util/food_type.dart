@@ -21,7 +21,7 @@ class FoodType extends StatelessWidget{
           style: TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
-          color: isSelect? Colors.orange : Colors.white ),
+          color: isSelect? Colors.lime : Colors.white ),
         ),
       ),
     );
