@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mb_task2/util/food_title.dart';
 import 'package:mb_task2/util/food_type.dart';
+import 'package:readmore/readmore.dart';
 
 
 class HomePage extends StatefulWidget{
@@ -63,7 +64,7 @@ class _HomePageState extends State<HomePage> {
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.search, color: Colors.lime,),
               hintText:'Найди для себя...',
-              hintStyle: TextStyle(color:Colors.lime),
+              hintStyle: const TextStyle(color:Colors.lime),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.lime.shade900)),
               enabledBorder: const OutlineInputBorder(
@@ -72,61 +73,86 @@ class _HomePageState extends State<HomePage> {
           ),
          ),
          const SizedBox(height: 10), //отступ между поиском и меню
-      Expanded(
-       child:ListView(
-       scrollDirection: Axis.vertical,
-         children: [
-         Container(
-          height: 50,// высота меню
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: foodType.length,
-            itemBuilder: (context, index) {
-              return FoodType(
-                foodType: foodType[index][0], 
-                isSelect: foodType[index][1],
-                onTap: () {
-                  foodTypeSelected(index);
-                },
-              );
-            },
-          ),
-         ),
-        Container(
-          height: 320,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: const [
-              FoodTitle(
-                foodImagePath: 'assets/corn.png',
-                foodName: 'Кукурузный суп',
-                foodPrice: '75',
-              ),
-              FoodTitle(
-                foodImagePath: 'assets/chicken.png',
-                foodName: ' Куриный суп',
-                foodPrice: ' 90',
-              ),
-              FoodTitle(
-                foodImagePath: 'assets/lentil.png',
-                foodName: ' Суп с чечевицей',
-                foodPrice: '83',
+        Expanded(
+          child:ListView(
+            scrollDirection: Axis.vertical,
+              children: [
+                SizedBox(
+                  height: 50,// высота меню
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: foodType.length,
+                    itemBuilder: (context, index) {
+                    return FoodType(
+                      foodType: foodType[index][0],
+                      isSelect: foodType[index][1],
+                     onTap: () {
+                      foodTypeSelected(index);
+                     },
+                    );
+                    },
+                   ),
+                ),
+             SizedBox(
+              height: 290,
+              child: ListView(
+                 scrollDirection: Axis.horizontal,
+                 children: const [
+                  FoodTitle(
+                  foodImagePath: 'assets/corn.png',
+                  foodName: 'Кукурузный суп',
+                  foodPrice: '75',
+                  ),
+                  FoodTitle(
+                  foodImagePath: 'assets/chicken.png',
+                  foodName: ' Куриный суп',
+                  foodPrice: ' 90',
+                  ),
+                 FoodTitle(
+                  foodImagePath: 'assets/lentil.png',
+                 foodName: ' Суп с чечевицей',
+                  foodPrice: '83',
               ),
             ],
           ),
         ),
            Padding(
-             padding: const EdgeInsets.symmetric(horizontal: 25.0),
-             child: Text(
-               'Суп недели - Чечевичный',
-               style: TextStyle(fontSize: 30, color: Colors.lime[700]),
-             ),
-           ),
-           Padding(
-             padding: const EdgeInsets.symmetric(horizontal: 25.0),
-             child: Text(
-              'Чечевица – одна из древнейших бобовых культур. Упоминания о блюдах из чечевицы встречаются в трудах античных историков, а первые рецепты — в древнеримской кулинарной книге легендарного гурмана I в. н. э. Марка Габия Апиция.Супу из чечевицы отдавал должное и древнегреческий комедиограф Аристофан, считавший эту еду «слаще всех деликатесов».Но, легендарным чечевичный суп стал благодаря драматической библейской истории про обмен права первородства на миску чечевичной похлебки, что повлияло на судьбу целого народа.',
-               style: TextStyle(fontSize: 25, color: Colors.lime[500]),
+             padding: const EdgeInsets.all(10.0),
+             child:Container(
+               padding: const EdgeInsets.all(7.0),
+               decoration: BoxDecoration(
+                 borderRadius: BorderRadius.circular(10),
+                 color: Colors.lime.shade100,
+               ),
+                 child: Column(
+                   crossAxisAlignment: CrossAxisAlignment.center,
+                   children: [
+
+                   Text(
+                       'СУП НЕДЕЛИ',
+                       style: TextStyle(
+                           fontSize: 29,
+                           color: Colors.lime[700],
+                            ),
+                     ),
+                     Text(
+                       'Чечевичный',
+                       style: TextStyle(fontSize: 25, color: Colors.lime[700],),
+                     ),
+                   Padding(
+                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                     child: ReadMoreText(
+                         Texts.ext1,
+                         style: TextStyle(fontSize: 23, color: Colors.lime[600]),
+                       trimLines: 6,
+                       colorClickableText:Colors.lime.shade900,
+                       trimMode: TrimMode.Line,
+                       trimCollapsedText:'подробнее',
+                       trimExpandedText: 'скрыть',
+                     ),
+                   ),
+                   ],
+                 ),
              ),
            ),
        ]
@@ -135,4 +161,7 @@ class _HomePageState extends State<HomePage> {
       ]),
     );
   }
+}
+class Texts{
+  static const String ext1 = 'Чечевица – одна из древнейших бобовых культур. Упоминания о блюдах из чечевицы встречаются в трудах античных историков, а первые рецепты — в древнеримской кулинарной книге легендарного гурмана I в. н. э. Марка Габия Апиция.Супу из чечевицы отдавал должное и древнегреческий комедиограф Аристофан, считавший эту еду «слаще всех деликатесов».Но, легендарным чечевичный суп стал благодаря драматической библейской истории про обмен права первородства на миску чечевичной похлебки, что повлияло на судьбу целого народа.';
 }

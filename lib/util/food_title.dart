@@ -14,13 +14,12 @@ class FoodTitle extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Padding(
-      padding: const EdgeInsets.only(left: 25.0, bottom: 50.0),
+      padding: const EdgeInsets.only(left:20.0, bottom: 10.0),
       child: Container(
         padding: const EdgeInsets.all(15.0),
         width: 200,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(11),
-          
           color: Colors.lime.shade700,
         ),
         child: Column(
@@ -30,7 +29,7 @@ class FoodTitle extends StatelessWidget{
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child:
-            Container(
+            SizedBox(
               width: 200,
               height: 150,
               child: FittedBox(
@@ -38,7 +37,6 @@ class FoodTitle extends StatelessWidget{
                 child: Image.asset(foodImagePath), ),
             ),
           ),
-         
           Padding (
             padding:
             const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0) ,
